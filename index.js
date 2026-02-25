@@ -1,20 +1,20 @@
 phrase = ""
 guessed = []
-wordbox = document.getElementById("")
-
-
+wordbox = document.getElementById("dashArea")
+guesses = 5
+images = ["./resources/finalWrong.png", "./resources/fifthWrong.png", "./resources/fourthWrong.png", "./resources/thirdWrong.png", "./resources/secondWrong.png", "./resources/firstWrong.png"]
 
 function choosePhrase(){
     const randomIndex = Math.floor(Math.random() * list.length);
     phrases = ["APPLE", "PEAR", "FRIED CHICKEN", "CHICKEN PATTIES", "COMPUTER", "LEMON", "SPORE", "OLD MAN JENKINS", "SKILLET", "SHARK", "MEDICAL", "HOTDOGS","HAMBURGERS","DIVORCE","ADOPTED","AUCTION"]
     user_word = phrases[randomIndex]
-    phrase = user
+    phrase = user_word
     toDashes(phrase)
 }
 
 function userGuess(guessed, phrase){
-  inform = document.getElementById("")
-  letter = document.getElementById("letter")
+  inform = document.getElementById("alertBox")
+  user = document.getElementById("letter")
   inform.textContent = ""
   let done = False
   let guess = user.toUpperCase()
@@ -33,20 +33,21 @@ function userGuess(guessed, phrase){
       }
       }
   guessed.append(guess)
-  updateGameData(letter, )
+  updateGameData(letter,wordbox, phrase, guesses)
 }
-function updateGameData(guess, dashed, phrase, guesses_left){
+function updateGameData(guess, dashed, phrase, guesses){
   if(guess in phrase){
     for(x=0;x<phrase.length();x++){
       if(guess == phrase[x]){
         dashed[x] = guess
       }
     }
+  wordbox.textContent = ' '.join(dashed)
   }
   else{
-    guesses_left -= 1
+    guesses -= 1
+    updateOutput(guesses, guessed)
   }
-  return dashed, guesses_left
 }
 
 function toDashes(phrase){
@@ -63,10 +64,11 @@ function toDashes(phrase){
   }
   wordbox.textContent = ' '.join(dashed) 
 }
-function updateOutput(guesses_left, dashed, used){
-  guessedLetters = ' '.join(used)
-  phraseSoFar = ' '.join(dashed)
-  //print(f"\n{phraseSoFar}")
-  //print(f"\nYou have already guessed: {guessedLetters}")
-  //print(f"You have {guesses_left} guesses left!")
+function updateOutput(guesses, guessed){
+  let previousguess = document.getElementById("letterContainer")
+  previousguess.textContent = ' '.join(guessed)
+  const imagebox = document.getElementById("imgArea")
+  imagebox.innerHTML = ''
+  let newimage = images[guesses]
+  imagebox.appendChild(newimage)
 }
