@@ -17,7 +17,7 @@ function userGuess(guessed, phrase){
   user = document.getElementById("letter")
   inform.textContent = ""
   let done = false
-  let guess = user.toUpperCase()
+  let guess = user.textContent.toUpperCase()
   while(done == false){
       if (ord(guess) >= 65 && ord(guess) <= 90){
         if(guess in guessed){
