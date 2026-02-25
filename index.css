@@ -48,15 +48,18 @@ input {
 #letter:hover {
     background-color:rgb(247,247,247);
 }
+#letter:focus {
+    background-color:rgb(247,247,247);
+}
 
 #guessLetter {
-    height:30px;
+    height:32px;
     border-radius:5px;
     background-color:rgb(255, 110, 110);
     border:transparent solid 1px;
 }
 #guessLetter:hover {
-    background-color:rgb(255,80,80)
+    background-color:rgb(255,100,100)
 }
 
 #alreadyGuessed {
