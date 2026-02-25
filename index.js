@@ -13,13 +13,14 @@ function choosePhrase(){
 }
 
 function userGuess(guessed, phrase){
+  alphabet=["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z",]
   inform = document.getElementById("alertBox")
   user = document.getElementById("letter")
   inform.textContent = ""
   let done = false
   let guess = user.textContent.toUpperCase()
   while(done == false){
-      if (ord(guess) >= 65 && ord(guess) <= 90){
+      if (alphabet.includes(guess)){
         if(guess in guessed){
           inform.textContent = "You've already guessed this letter!"
           letter.textContent = ""
