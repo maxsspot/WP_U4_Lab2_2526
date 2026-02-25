@@ -8,8 +8,12 @@ body {
     background-color:#F0F0F0;
 }
 
+button {
+    cursor:pointer;
+}
+
 #main {
-    position:fixed;
+    position:absolute;
     left:50%;
     top:40%;
     transform:translate(-50%,-50%);
@@ -22,4 +26,23 @@ body {
     border-radius:5px;
     text-align:center;
     background-color:white;
+}
+
+#guessLetter {
+    height:30px;
+    border-radius:5px;
+    background-color:rgb(255, 90, 90);
+    border:transparent solid 1px;
+    
+}
+
+#alreadyGuessed {
+    background-color:white;
+    border-radius:5px;
+    padding:10px;
+    width:250px;
+    position:fixed;
+    bottom:-150px;
+    left:55%;
+    transform:translateX(-50%);
 }
