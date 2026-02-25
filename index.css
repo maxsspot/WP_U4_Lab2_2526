@@ -10,6 +10,10 @@ body {
 
 button {
     cursor:pointer;
+    transition:all 0.25s;
+}
+input {
+    transition:all 0.25s;
 }
 
 #main {
@@ -27,22 +31,33 @@ button {
     text-align:center;
     background-color:white;
 }
+#letter:hover {
+    background-color:rgb(247,247,247);
+}
 
 #guessLetter {
     height:30px;
     border-radius:5px;
     background-color:rgb(255, 90, 90);
     border:transparent solid 1px;
-    
+}
+#guessLetter:hover {
+    background-color:rgb(255,105,105)
 }
 
 #alreadyGuessed {
     background-color:white;
     border-radius:5px;
-    padding:10px;
+    padding-bottom:15px;
     width:250px;
     position:fixed;
     bottom:-150px;
-    left:55%;
+    left:50%;
     transform:translateX(-50%);
+}
+
+#letterContainer {
+    width:200px;
+    margin:auto;
+    font-size:20px;
 }
