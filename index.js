@@ -1,36 +1,39 @@
+phrase = ""
+guessed = []
+wordbox = document.getElementById("")
+
+
+
 function choosePhrase(){
     const randomIndex = Math.floor(Math.random() * list.length);
     phrases = ["APPLE", "PEAR", "FRIED CHICKEN", "CHICKEN PATTIES", "COMPUTER", "LEMON", "SPORE", "OLD MAN JENKINS", "SKILLET", "SHARK", "MEDICAL", "HOTDOGS","HAMBURGERS","DIVORCE","ADOPTED","AUCTION"]
     user_word = phrases[randomIndex]
-    return user_word
+    phrase = user
+    toDashes(phrase)
 }
 
-function userGuess(user, guessed){
+function userGuess(guessed, phrase){
+  inform = document.getElementById("")
+  letter = document.getElementById("letter")
+  inform.textContent = ""
   let done = False
   let guess = user.toUpperCase()
   while(done == False){
-    if (guess.length() == 1){
       if (ord(guess) >= 65 && ord(guess) <= 90){
-        while(guess in guessed){
-          print("Your guess must be a new one. Please try a new letter.")
-          guess = input("What letter would you like to try? ").upper()
+        if(guess in guessed){
+          inform.textContent = "You've already guessed this letter!"
+          letter.textContent = ""
+
         }
           done = True
         }
       else{
-        print("Your input must be a single letter. Please try again.\n")
-        guess = input("What letter do you want to try? ").upper()
+        inform.textContent = "You cannot guess something other than a letter"
+        letter.textContent = ""
       }
       }
-    
-    else{
-      print("Your input must be a single letter. Please try again.\n")
-      guess = input("What letter would you like to try? ").upper()
-    }
-    }
-  
-  guessed += guess.upper()
-  return guess.upper(), guessed
+  guessed.append(guess)
+  updateGameData(letter, )
 }
 function updateGameData(guess, dashed, phrase, guesses_left){
   if(guess in phrase){
@@ -45,6 +48,7 @@ function updateGameData(guess, dashed, phrase, guesses_left){
   }
   return dashed, guesses_left
 }
+
 function toDashes(phrase){
   dashed = [""]
   for(i=0;i<phrase.length();i++){
@@ -57,7 +61,7 @@ function toDashes(phrase){
 
   dashed.remove("")
   }
-  return dashed    
+  wordbox.textContent = ' '.join(dashed) 
 }
 function updateOutput(guesses_left, dashed, used){
   guessedLetters = ' '.join(used)
