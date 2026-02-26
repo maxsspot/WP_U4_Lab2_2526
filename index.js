@@ -4,13 +4,16 @@ let wordbox = document.getElementById("dashArea")
 let guesses = 6
 let images = ["./resources/finalWrong.png", "./resources/fifthWrong.png", "./resources/fourthWrong.png", "./resources/thirdWrong.png", "./resources/secondWrong.png", "./resources/firstWrong.png"]
 let newimage = document.createElement("img")
+
 function choosePhrase(){
-    const randomIndex = Math.floor(Math.random() * list.length);
-    phrases = ["APPLE", "PEAR", "FRIED CHICKEN", "CHICKEN PATTIES", "COMPUTER", "LEMON", "SPORE", "OLD MAN JENKINS", "SKILLET", "SHARK", "MEDICAL", "HOTDOGS","HAMBURGERS","DIVORCE","ADOPTED","AUCTION"]
+  let phrases = ["APPLE", "PEAR", "FRIED CHICKEN", "CHICKEN PATTIES", "COMPUTER", "LEMON", "SPORE", "OLD MAN JENKINS", "SKILLET", "SHARK", "MEDICAL", "HOTDOGS","HAMBURGERS","DIVORCE","ADOPTED","AUCTION"]  
+  const randomIndex = Math.floor(Math.random() * phrases.length);
+    
     user_word = phrases[randomIndex]
     phrase = user_word
     toDashes(phrase)
 }
+choosePhrase()
 
 function restartclick(div){
 location.reload(true);
@@ -19,9 +22,9 @@ location.reload(true);
 
 
 function userGuess(yourGuesses, phrase){
-  alphabet=["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z",]
-  inform = document.getElementById("alertBox")
-  user = document.getElementById("letter")
+  let alphabet=["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z",]
+  let inform = document.getElementById("alertBox")
+  let user = document.getElementById("letter")
   inform.textContent = ""
   let guess = user.value.toUpperCase()
       if (alphabet.includes(guess)){
@@ -59,7 +62,9 @@ function updateGameData(guess, dashed, phrase, yourGuesses, guesses){
 
 function toDashes(phrase){
   dashed = [""]
-  for(i=0;i<phrase.length();i++){
+      console.log(phrase)
+
+  for(i=0;i<phrase.length;i++){
     if(phrase[i] == " "){
       dashed.push(" ")
     }
@@ -67,8 +72,8 @@ function toDashes(phrase){
       dashed.push("_")
     }
 
-  dashed.remove("")
   }
+  console.log(dashed)
   wordbox.textContent = dashed.join(" ") 
 }
 function updateOutput(guesses, yourGuesses){
