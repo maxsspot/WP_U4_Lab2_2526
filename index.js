@@ -11,7 +11,7 @@ function choosePhrase(){
     phrase = user_word
     toDashes(phrase)
 }
-
+choosePhrase()
 function restartclick(div){
 location.reload(true);
 }
@@ -68,6 +68,7 @@ function toDashes(phrase){
       dashed.push("_")
     }
   }
+  
   wordbox.textContent = dashed.join(" ") 
 }
 function updateOutput(guesses, yourGuesses){
