@@ -12,15 +12,15 @@
         <button id="restart" onclick="restartclick(this)">⟳ Restart Game</button>
         <div id="alertBox"></div>
         <div id="main">
-            <h1>Hangman</h1>
+            <h1 id="header">Hangman</h1>
             <div id="imgArea">
                 
             </div>
-            <input id="letter" maxlength="1"/>
-            <button id="guessLetter" onclick="userGuess(yourGuesses, phrase)">Guess Letter</button>
             <div id="dashArea">
 
-            </div>
+            </div><br>
+            <input id="letter" maxlength="1"/>
+            <button id="guessLetter" onclick="userGuess(yourGuesses, phrase)">Guess Letter</button>
             <div id="alreadyGuessed">
                 <h2>Wrong Guesses...</h2>
                 <div id="letterContainer">
