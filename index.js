@@ -1,7 +1,7 @@
 let phrase = ""
 let yourGuesses = []
 let wordbox = document.getElementById("dashArea")
-let guesses = 5
+let guesses = 6
 let images = ["./resources/finalWrong.png", "./resources/fifthWrong.png", "./resources/fourthWrong.png", "./resources/thirdWrong.png", "./resources/secondWrong.png", "./resources/firstWrong.png"]
 let newimage = document.createElement("img")
 function choosePhrase(){
@@ -38,7 +38,7 @@ function userGuess(yourGuesses, phrase){
         letter.textContent = ""
       }
       
-  yourGuesses.append(guess)
+  yourGuesses.push(guess)
   updateGameData(letter,wordbox, phrase, yourGuesses, guesses)
 }
 function updateGameData(guess, dashed, phrase, yourGuesses, guesses){
