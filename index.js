@@ -17,8 +17,7 @@ function userGuess(guessed, phrase){
   inform = document.getElementById("alertBox")
   user = document.getElementById("letter")
   inform.textContent = ""
-  let done = false
-  let guess = user.textContent.toUpperCase()
+  let guess = user.value.toUpperCase()
       if (alphabet.includes(guess)){
         if(guess in guessed){
           inform.textContent = "You've already guessed this letter!"
