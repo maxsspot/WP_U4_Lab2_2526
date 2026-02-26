@@ -1,8 +1,8 @@
-phrase = ""
-guessed = []
-wordbox = document.getElementById("dashArea")
-guesses = 5
-images = ["./resources/finalWrong.png", "./resources/fifthWrong.png", "./resources/fourthWrong.png", "./resources/thirdWrong.png", "./resources/secondWrong.png", "./resources/firstWrong.png"]
+let phrase = ""
+let guessed = []
+let wordbox = document.getElementById("dashArea")
+let guesses = 5
+let images = ["./resources/finalWrong.png", "./resources/fifthWrong.png", "./resources/fourthWrong.png", "./resources/thirdWrong.png", "./resources/secondWrong.png", "./resources/firstWrong.png"]
 
 function choosePhrase(){
     const randomIndex = Math.floor(Math.random() * list.length);
