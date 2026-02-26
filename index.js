@@ -19,7 +19,7 @@ function userGuess(guessed, phrase){
   inform.textContent = ""
   let guess = user.value.toUpperCase()
       if (alphabet.includes(guess)){
-        if(guess in guessed){
+        if(guessed.includes(guess)){
           inform.textContent = "You've already guessed this letter!"
           letter.textContent = ""
 
@@ -38,7 +38,7 @@ function userGuess(guessed, phrase){
   updateGameData(letter,wordbox, phrase, guesses)
 }
 function updateGameData(guess, dashed, phrase, guesses){
-  if(guess in phrase){
+  if(phrase.includes(guess)){
     for(x=0;x<phrase.length();x++){
       if(guess == phrase[x]){
         dashed[x] = guess
