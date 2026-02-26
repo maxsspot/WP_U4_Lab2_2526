@@ -3,7 +3,7 @@ let yourGuesses = []
 let wordbox = document.getElementById("dashArea")
 let guesses = 5
 let images = ["./resources/finalWrong.png", "./resources/fifthWrong.png", "./resources/fourthWrong.png", "./resources/thirdWrong.png", "./resources/secondWrong.png", "./resources/firstWrong.png"]
-
+let newimage = document.createElement("img")
 function choosePhrase(){
     const randomIndex = Math.floor(Math.random() * list.length);
     phrases = ["APPLE", "PEAR", "FRIED CHICKEN", "CHICKEN PATTIES", "COMPUTER", "LEMON", "SPORE", "OLD MAN JENKINS", "SKILLET", "SHARK", "MEDICAL", "HOTDOGS","HAMBURGERS","DIVORCE","ADOPTED","AUCTION"]
@@ -11,6 +11,12 @@ function choosePhrase(){
     phrase = user_word
     toDashes(phrase)
 }
+
+function restartclick(div){
+location.reload(true);
+}
+
+
 
 function userGuess(yourGuesses, phrase){
   alphabet=["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z",]
@@ -72,6 +78,7 @@ function updateOutput(guesses, yourGuesses){
   previousguess.textContent = yourGuesses.join(" ")
   const imagebox = document.getElementById("imgArea")
   imagebox.innerHTML = ''
-  let newimage = images[guesses]
+  newimage.src = images[guesses]
+
   imagebox.appendChild(newimage)
 }
