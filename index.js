@@ -38,7 +38,6 @@ function userGuess(yourGuesses, phrase){
         letter.textContent = ""
       }
       
-  yourGuesses.push(guess)
   updateGameData(letter,wordbox, phrase, yourGuesses, guesses)
 }
 function updateGameData(guess, dashed, phrase, yourGuesses, guesses){
