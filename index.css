@@ -8,6 +8,18 @@ body {
     background-color:#F0F0F0;
 }
 
+#alertBox {
+    background-color:whitesmoke;
+    width:fit-content;
+    padding:5px;
+    margin:auto;
+    border-radius:5px;
+    position:fixed;
+    left:50%;
+    transform:translateX(-50%);
+    z-index:2;
+}
+
 button {
     cursor:pointer;
     transition:all 0.25s;
@@ -68,7 +80,7 @@ input {
     padding-bottom:15px;
     width:250px;
     position:fixed;
-    bottom:-150px;
+    bottom:-125px;
     left:50%;
     transform:translateX(-50%);
 }
@@ -77,4 +89,8 @@ input {
     width:200px;
     margin:auto;
     font-size:20px;
+}
+
+#dashArea {
+    font-size:24px;
 }
