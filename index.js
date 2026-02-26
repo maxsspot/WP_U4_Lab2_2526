@@ -1,5 +1,5 @@
 let phrase = ""
-let guessed = []
+let yourGuesses = []
 let wordbox = document.getElementById("dashArea")
 let guesses = 5
 let images = ["./resources/finalWrong.png", "./resources/fifthWrong.png", "./resources/fourthWrong.png", "./resources/thirdWrong.png", "./resources/secondWrong.png", "./resources/firstWrong.png"]
@@ -12,43 +12,43 @@ function choosePhrase(){
     toDashes(phrase)
 }
 
-function userGuess(guessed, phrase){
+function userGuess(yourGuesses, phrase){
   alphabet=["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z",]
   inform = document.getElementById("alertBox")
   user = document.getElementById("letter")
   inform.textContent = ""
   let guess = user.value.toUpperCase()
       if (alphabet.includes(guess)){
-        if(guessed.includes(guess)){
+        if(yourGuesses.includes(guess)){
           inform.textContent = "You've already guessed this letter!"
           letter.textContent = ""
-
+        } else{
+          yourGuesses.push(guess)
+          console.log(yourGuesses)
+          updateGameData(letter,wordbox, phrase, yourGuesses, guesses)
         }
-      else{
-        guessed.append(guess)
-        updateGameData(letter,wordbox, phrase, guesses)
-      }
-        }
-      else{
+      } else{
         inform.textContent = "You cannot guess something other than a letter"
         letter.textContent = ""
       }
       
-  guessed.append(guess)
-  updateGameData(letter,wordbox, phrase, guesses)
+  yourGuesses.append(guess)
+  updateGameData(letter,wordbox, phrase, yourGuesses, guesses)
 }
-function updateGameData(guess, dashed, phrase, guesses){
+function updateGameData(guess, dashed, phrase, yourGuesses, guesses){
   if(phrase.includes(guess)){
     for(x=0;x<phrase.length();x++){
       if(guess == phrase[x]){
         dashed[x] = guess
       }
     }
-  wordbox.textContent = ' '.join(dashed)
+  wordbox.textContent = dashed.join(" ")
   }
   else{
     guesses -= 1
-    updateOutput(guesses, guessed)
+    console.log(guesses)
+    console.log(yourGuesses)
+    updateOutput(guesses, yourGuesses)
   }
 }
 
@@ -56,19 +56,20 @@ function toDashes(phrase){
   dashed = [""]
   for(i=0;i<phrase.length();i++){
     if(phrase[i] == " "){
-      dashed.append(" ")
+      dashed.push(" ")
     }
     else{
-      dashed.append("_")
+      dashed.push("_")
     }
 
   dashed.remove("")
   }
-  wordbox.textContent = ' '.join(dashed) 
+  wordbox.textContent = dashed.join(" ") 
 }
-function updateOutput(guesses, guessed){
+function updateOutput(guesses, yourGuesses){
   let previousguess = document.getElementById("letterContainer")
-  previousguess.textContent = ' '.join(guessed)
+  console.log(yourGuesses)
+  previousguess.textContent = yourGuesses.join(" ")
   const imagebox = document.getElementById("imgArea")
   imagebox.innerHTML = ''
   let newimage = images[guesses]
