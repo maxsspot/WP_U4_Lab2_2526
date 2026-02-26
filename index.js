@@ -19,20 +19,22 @@ function userGuess(guessed, phrase){
   inform.textContent = ""
   let done = false
   let guess = user.textContent.toUpperCase()
-  while(done == false){
       if (alphabet.includes(guess)){
         if(guess in guessed){
           inform.textContent = "You've already guessed this letter!"
           letter.textContent = ""
 
         }
-          done = True
+      else{
+        guessed.append(guess)
+        updateGameData(letter,wordbox, phrase, guesses)
+      }
         }
       else{
         inform.textContent = "You cannot guess something other than a letter"
         letter.textContent = ""
       }
-      }
+      
   guessed.append(guess)
   updateGameData(letter,wordbox, phrase, guesses)
 }
