@@ -60,7 +60,7 @@ function updateGameData(guess, dashed, phrase, yourGuesses, guesses){
 
 function toDashes(phrase){
   dashed = [""]
-  for(i=0;i<phrase.length();i++){
+  for(i=0;i<phrase.length;i++){
     if(phrase[i] == " "){
       dashed.push(" ")
     }
