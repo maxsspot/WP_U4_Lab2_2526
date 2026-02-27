@@ -32,7 +32,7 @@ input {
     background-color:rgb(0,200,255);
     width:125px;
     height:35px;
-    border-radius:5px;
+    border-radius:8px;
     border:transparent solid 3px;
     position:fixed;
     right:5px;
@@ -56,7 +56,7 @@ input {
     width:30px;
     height:30px;
     border:transparent solid 1px;
-    border-radius:5px;
+    border-radius:8px;
     text-align:center;
     background-color:white;
 }
@@ -69,7 +69,7 @@ input {
 
 #guessLetter {
     height:32px;
-    border-radius:5px;
+    border-radius:8px;
     background-color:rgb(255, 110, 110);
     border:transparent solid 3px;
 }
@@ -82,7 +82,7 @@ input {
 
 #alreadyGuessed {
     background-color:white;
-    border-radius:5px;
+    border-radius:8px;
     padding-bottom:15px;
     width:250px;
     position:fixed;
