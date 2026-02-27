@@ -5,7 +5,7 @@ var guesses = 6
 let images = ["./resources/finalWrong.png", "./resources/fifthWrong.png", "./resources/fourthWrong.png", "./resources/thirdWrong.png", "./resources/secondWrong.png", "./resources/firstWrong.png"]
 let newimage = document.createElement("img")
 function choosePhrase(){
-  const phrases = ["APPLE", "PEAR", "FRIED CHICKEN", "CHICKEN PATTIES", "COMPUTER", "LEMON", "SPORE", "OLD MAN JENKINS", "SKILLET", "SHARK", "MEDICAL", "HOTDOGS","HAMBURGERS","DIVORCE","ADOPTED","AUCTION"]  
+  const phrases = ["APPLE", "PEAR", "COMPUTER", "LEMON", "SPORE", "SKILLET", "SHARK", "MEDICAL", "HOTDOGS","HAMBURGERS","DIVORCE","ADOPTED","AUCTION"]  
   const randomIndex = Math.floor(Math.random() * phrases.length);
     const user_word = phrases[randomIndex]
     phrase = user_word
@@ -29,9 +29,13 @@ function userGuess(){
           inform.textContent = "You've already guessed this letter!"
           letter.textContent = ""
         } else{
+          if(phrase.includes(guess)){
+          updateGameData(guess,wordbox.textContent)
+        }
+        else{
           yourGuesses.push(guess)
-          console.log(yourGuesses)
-          updateGameData(guess,wordbox.textContent, yourGuesses)
+          updateGameData(guess,wordbox.textContent)
+        }
         }
       } else{
         inform.textContent = "You cannot guess something other than a letter"
@@ -39,44 +43,42 @@ function userGuess(){
       }
 }
 function updateGameData(guess, dashed){
+  console.log(dashed)
+  let dashes = dashed.split(" ")
+  console.log(dashes)
   if(phrase.includes(guess)){
     for(x=0;x<phrase.length;x++){
-      if(guess == phrase[x]){
-        dashed[x] = guess
+      if(String(guess) == String(phrase[x])){
+        dashes[x] = guess
       }
     }
-  console.log(dashed)
+    console.log(dashes)
+  dashed = dashes.join(" ")
   wordbox.textContent = dashed
   }
   else{
-    console.log("aaa", guesses)
     guesses-- 
-    console.log(guesses)
-    console.log(yourGuesses)
-    updateOutput(yourGuesses)
+    updateOutput()
   }
 }
 
 function toDashes(){
-  dashed = [""]
+  dashed = []
   for(i=0;i<phrase.length;i++){
-    if(phrase[i] == " "){
-      dashed.push(" ")
-    }
-    else{
       dashed.push("_")
     }
-  }
-  
   wordbox.textContent = dashed.join(" ") 
 }
 function updateOutput(){
   let previousguess = document.getElementById("letterContainer")
-  console.log(yourGuesses)
   previousguess.textContent = yourGuesses.join(" ")
   const imagebox = document.getElementById("imgArea")
   imagebox.innerHTML = ''
   newimage.src = images[guesses]
-
   imagebox.appendChild(newimage)
+  if(guesses == 0){
+    wordbox.textContent = `YOU LOST, PRESS RESTART. THE CORRECT WORD WAS ${phrase}`
+    document.getElementById("guessLetter").style.pointerEvents="none"
+  }
+
 }
