@@ -16,9 +16,9 @@ function restartclick(){
 location.reload(true);
 }
 
+console.log(phrase)
 
-
-function userGuess(yourGuesses, phrase){
+function userGuess(){
   const alphabet=["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z",]
   const inform = document.getElementById("alertBox")
   const user = document.getElementById("letter")
@@ -31,22 +31,22 @@ function userGuess(yourGuesses, phrase){
         } else{
           yourGuesses.push(guess)
           console.log(yourGuesses)
-          updateGameData(letter,wordbox, phrase, yourGuesses)
+          updateGameData(guess,wordbox.textContent, yourGuesses)
         }
       } else{
         inform.textContent = "You cannot guess something other than a letter"
         letter.textContent = ""
       }
 }
-function updateGameData(guess, dashed, phrase, yourGuesses){
+function updateGameData(guess, dashed){
   if(phrase.includes(guess)){
-    for(x=0;x<phrase.length();x++){
+    for(x=0;x<phrase.length;x++){
       if(guess == phrase[x]){
         dashed[x] = guess
       }
     }
-  
-  wordbox.textContent = dashed.join(" ")
+  console.log(dashed)
+  wordbox.textContent = dashed
   }
   else{
     console.log("aaa", guesses)
@@ -57,7 +57,7 @@ function updateGameData(guess, dashed, phrase, yourGuesses){
   }
 }
 
-function toDashes(phrase){
+function toDashes(){
   dashed = [""]
   for(i=0;i<phrase.length;i++){
     if(phrase[i] == " "){
@@ -70,7 +70,7 @@ function toDashes(phrase){
   
   wordbox.textContent = dashed.join(" ") 
 }
-function updateOutput(yourGuesses){
+function updateOutput(){
   let previousguess = document.getElementById("letterContainer")
   console.log(yourGuesses)
   previousguess.textContent = yourGuesses.join(" ")
