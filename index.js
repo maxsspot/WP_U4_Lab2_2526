@@ -12,7 +12,7 @@ function choosePhrase(){
     toDashes(phrase)
 }
 choosePhrase()
-function restartclick(div){
+function restartclick(){
 location.reload(true);
 }
 
