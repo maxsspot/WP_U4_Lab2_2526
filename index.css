@@ -8,6 +8,12 @@ body {
     background-color:#F0F0F0;
 }
 
+a {
+    position:fixed;
+    left:0px;
+    bottom:0px;
+}
+
 #alertBox {
     background-color:whitesmoke;
     width:fit-content;
